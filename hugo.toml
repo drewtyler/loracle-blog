@@ -30,14 +30,6 @@ theme = "PaperMod"
 
 **Loracle** records your sessions and builds a searchable knowledge base automatically. No more forgotten NPCs, lost plot threads, or "what happened last session?" moments."""
 
-  [[params.socialIcons]]
-    name = "discord"
-    url = "https://discord.gg/loracle"
-
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/drewtyler/loracle-blog"
-
 # Simpler menu - just link back to main site
 [menu]
   [[menu.main]]
