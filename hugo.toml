@@ -9,31 +9,41 @@ theme = "PaperMod"
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
-  ShowBreadCrumbs = true
+  ShowBreadCrumbs = false
   ShowCodeCopyButtons = true
   defaultTheme = "dark"
+  disableThemeToggle = false
 
+  # Show full content on home page for recent posts
+  ShowFullTextinRSS = true
+
+  # Cover image settings
+  [params.cover]
+    hidden = false
+    hiddenInList = false
+    hiddenInSingle = false
+
+  # Home page - show recent posts directly (no profile mode)
   [params.homeInfoParams]
     Title = "Loracle Blog"
-    Content = "Thoughts on D&D, memory, storytelling, and building the campaign companion you deserve."
+    Content = """Thoughts on D&D, memory, storytelling, and the campaign companion you deserve.
+
+**Loracle** records your sessions and builds a searchable knowledge base automatically. No more forgotten NPCs, lost plot threads, or "what happened last session?" moments."""
 
   [[params.socialIcons]]
     name = "discord"
     url = "https://discord.gg/loracle"
 
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/drewtyler/loracle-blog"
+
+# Simpler menu - just link back to main site
 [menu]
   [[menu.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 1
-  [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 2
-  [[menu.main]]
-    name = "Loracle"
+    name = "Loracle App"
     url = "https://loracle.io"
-    weight = 3
+    weight = 1
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -41,3 +51,5 @@ theme = "PaperMod"
 [markup]
   [markup.highlight]
     style = "dracula"
+  [markup.goldmark.renderer]
+    unsafe = true

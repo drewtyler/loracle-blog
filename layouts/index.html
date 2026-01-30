@@ -1,0 +1,60 @@
+{{- define "main" }}
+
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ .Site.Params.homeInfoParams.Title }}</h1>
+    </header>
+    <section class="entry-content">
+        <p>{{ .Site.Params.homeInfoParams.Content | markdownify }}</p>
+    </section>
+    <footer class="entry-footer">
+        {{- partial "social_icons.html" (dict "align" "") }}
+    </footer>
+</article>
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $featured := first 1 $pages }}
+{{- $rest := after 1 $pages }}
+
+{{/* Featured / Latest Post - Full Content */}}
+{{- range $featured }}
+<article class="post-entry first-entry">
+    <header class="entry-header">
+        <span style="color: var(--secondary); font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em;">Latest Post</span>
+        <h2 style="margin-top: 0.5em;">
+            <a href="{{ .Permalink }}">{{- .Title }}</a>
+        </h2>
+    </header>
+    <section class="entry-content">
+        <p>{{ .Summary }}</p>
+    </section>
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer">
+        {{- partial "post_meta.html" . -}}
+    </footer>
+    {{- end }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>
+{{- end }}
+
+{{/* Rest of the posts */}}
+{{- range $rest }}
+<article class="post-entry">
+    <header class="entry-header">
+        <h2>
+            <a href="{{ .Permalink }}">{{- .Title }}</a>
+        </h2>
+    </header>
+    <section class="entry-content">
+        <p>{{ .Summary }}</p>
+    </section>
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer">
+        {{- partial "post_meta.html" . -}}
+    </footer>
+    {{- end }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>
+{{- end }}
+
+{{- end }}{{- /* end main */ -}}

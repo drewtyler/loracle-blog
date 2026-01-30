@@ -1,0 +1,116 @@
+/* Fuller, more engaging layout */
+
+/* Make the main content area wider */
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Home info section - more prominent */
+.home-info {
+    background: var(--code-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.home-info .entry-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.home-info .entry-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--secondary);
+}
+
+.home-info .entry-content strong {
+    color: var(--primary);
+}
+
+/* Featured post styling */
+.first-entry.post-entry {
+    background: linear-gradient(135deg, var(--code-bg) 0%, transparent 100%);
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 1.5rem;
+}
+
+.first-entry.post-entry h2 {
+    font-size: 1.8rem;
+}
+
+/* Regular posts */
+.post-entry {
+    background: var(--entry);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Entry content - show more text */
+.entry-content {
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+}
+
+.first-entry .entry-content {
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
+}
+
+/* Social icons */
+.entry-footer svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Header adjustments */
+.nav {
+    padding: 1rem 2rem;
+}
+
+/* Post pages - fuller content */
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-content h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-content blockquote {
+    border-left: 4px solid var(--primary);
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: var(--secondary);
+    margin: 2rem 0;
+}
+
+/* Make theme toggle more visible */
+#theme-toggle {
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: var(--code-bg);
+}
+
+#theme-toggle:hover {
+    background: var(--border);
+}
