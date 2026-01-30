@@ -1,57 +1,47 @@
 {{- define "main" }}
 
-<article class="first-entry home-info">
-    <header class="entry-header">
-        <h1>{{ .Site.Params.homeInfoParams.Title }}</h1>
-    </header>
-    <section class="entry-content">
-        <p>{{ .Site.Params.homeInfoParams.Content | markdownify }}</p>
-    </section>
-</article>
-
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{- $featured := first 1 $pages }}
 {{- $rest := after 1 $pages }}
 
-{{/* Featured / Latest Post - Full Content */}}
-{{- range $featured }}
-<article class="post-entry first-entry">
-    <header class="entry-header">
-        <span style="color: var(--secondary); font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em;">Latest Post</span>
-        <h2 style="margin-top: 0.5em;">
-            <a href="{{ .Permalink }}">{{- .Title }}</a>
-        </h2>
-    </header>
-    <section class="entry-content">
-        <p>{{ .Summary }}</p>
-    </section>
-    {{- if not (.Param "hideMeta") }}
-    <footer class="entry-footer">
-        {{- partial "post_meta.html" . -}}
-    </footer>
-    {{- end }}
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
-{{- end }}
+<div class="home-layout">
+    <main class="home-main">
+        {{/* Featured / Latest Post */}}
+        {{- range $featured }}
+        <article class="featured-post">
+            <span class="featured-label">Latest Post</span>
+            <h1 class="featured-title">
+                <a href="{{ .Permalink }}">{{- .Title }}</a>
+            </h1>
+            <div class="featured-meta">
+                {{- partial "post_meta.html" . -}}
+            </div>
+            <div class="featured-content">
+                {{ .Summary }}
+            </div>
+            <a href="{{ .Permalink }}" class="read-more">Read full post →</a>
+        </article>
+        {{- end }}
 
-{{/* Rest of the posts */}}
-{{- range $rest }}
-<article class="post-entry">
-    <header class="entry-header">
-        <h2>
-            <a href="{{ .Permalink }}">{{- .Title }}</a>
-        </h2>
-    </header>
-    <section class="entry-content">
-        <p>{{ .Summary }}</p>
-    </section>
-    {{- if not (.Param "hideMeta") }}
-    <footer class="entry-footer">
-        {{- partial "post_meta.html" . -}}
-    </footer>
-    {{- end }}
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
-{{- end }}
+        {{/* Other posts */}}
+        <div class="other-posts">
+            <h2 class="section-title">Previous Posts</h2>
+            {{- range $rest }}
+            <article class="post-card">
+                <h3><a href="{{ .Permalink }}">{{- .Title }}</a></h3>
+                <p>{{ .Summary | truncate 120 }}</p>
+                <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+            </article>
+            {{- end }}
+        </div>
+    </main>
+
+    <aside class="home-sidebar">
+        <div class="sidebar-about">
+            <h2>{{ .Site.Params.homeInfoParams.Title }}</h2>
+            <p>{{ .Site.Params.homeInfoParams.Content | markdownify }}</p>
+        </div>
+    </aside>
+</div>
 
 {{- end }}{{- /* end main */ -}}

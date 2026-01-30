@@ -1,0 +1,51 @@
+{{- define "main" }}
+
+<div class="post-layout">
+    <article class="post-main">
+        <header class="post-header">
+            <h1 class="post-title">{{ .Title }}</h1>
+            <div class="post-meta">
+                {{- partial "post_meta.html" . -}}
+            </div>
+            {{- if .Description }}
+            <p class="post-description">{{ .Description }}</p>
+            {{- end }}
+        </header>
+
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+
+        {{- if .Params.tags }}
+        <footer class="post-tags">
+            {{- range .Params.tags }}
+            <a href="{{ "tags/" | absURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+            {{- end }}
+        </footer>
+        {{- end }}
+    </article>
+
+    <aside class="post-sidebar">
+        <div class="sidebar-section">
+            <h3>More Posts</h3>
+            {{- $current := . }}
+            {{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
+            {{- range first 5 $posts }}
+            {{- if ne .Permalink $current.Permalink }}
+            <a href="{{ .Permalink }}" class="sidebar-post {{ if eq .Permalink $current.Permalink }}active{{ end }}">
+                <span class="sidebar-post-title">{{ .Title }}</span>
+                <span class="sidebar-post-date">{{ .Date.Format "Jan 2" }}</span>
+            </a>
+            {{- end }}
+            {{- end }}
+        </div>
+
+        <div class="sidebar-section sidebar-about">
+            <h3>About Loracle</h3>
+            <p><strong>Loracle</strong> records your D&D sessions and builds a searchable knowledge base automatically.</p>
+            <a href="https://loracle.io" class="sidebar-cta">Try Loracle →</a>
+        </div>
+    </aside>
+</div>
+
+{{- end }}{{- /* end main */ -}}

@@ -1,175 +1,272 @@
-/* Clean, readable design */
+/* Clean, readable two-column design */
 
 :root {
-    --text-bright: #f0f0f0;
-    --text-body: #d4d4d4;
-    --text-muted: #888;
+    --text-bright: #f5f5f5;
+    --text-body: #e0e0e0;
+    --text-muted: #999;
     --accent: #7c3aed;
-    --accent-soft: rgba(124, 58, 237, 0.15);
-    --surface: #1a1a1a;
-    --surface-raised: #242424;
+    --accent-hover: #8b5cf6;
+    --surface: #141414;
+    --surface-raised: #1e1e1e;
+    --surface-border: rgba(255,255,255,0.08);
 }
 
-/* Wider layout */
-.main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 2rem 3rem;
-}
-
-/* Header - cleaner */
-.nav {
-    max-width: 960px;
-    padding: 1.5rem 3rem;
-}
-
-/* Theme toggle - just an icon, no box */
-#theme-toggle {
-    background: transparent;
-    border: none;
-    padding: 0.25rem;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-}
-
-#theme-toggle:hover {
-    background: transparent;
-    opacity: 1;
-}
-
-/* Home info section */
-.home-info {
-    background: var(--surface-raised);
-    border-radius: 16px;
-    padding: 2.5rem;
-    margin-bottom: 3rem;
-    border: 1px solid rgba(255,255,255,0.06);
-}
-
-.home-info .entry-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1.25rem;
-    color: var(--text-bright);
-    font-weight: 700;
-}
-
-.home-info .entry-content p {
-    font-size: 1.1rem;
-    line-height: 1.75;
+/* Base text colors */
+body {
     color: var(--text-body);
 }
 
-.home-info .entry-content strong {
-    color: var(--text-bright);
-    font-weight: 600;
+/* Wider layout container */
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Social icons - subtle */
-.social-icons {
-    margin-top: 1.5rem;
+/* Header */
+.nav {
+    max-width: 1200px;
+    padding: 1.5rem 2rem;
 }
 
-.social-icons a {
+/* Theme toggle - subtle */
+#theme-toggle {
+    background: transparent !important;
+    border: none;
+    padding: 0.25rem;
     opacity: 0.5;
     transition: opacity 0.2s;
 }
 
-.social-icons a:hover {
+#theme-toggle:hover {
+    background: transparent !important;
     opacity: 1;
 }
 
-.social-icons svg {
-    width: 22px;
-    height: 22px;
+/* ========================================
+   HOMEPAGE LAYOUT
+   ======================================== */
+
+.home-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
 }
 
-/* Featured post - clean, no gradient */
-.first-entry.post-entry {
+@media (max-width: 900px) {
+    .home-layout {
+        grid-template-columns: 1fr;
+    }
+    .home-sidebar {
+        order: -1;
+    }
+}
+
+/* Featured Post - The Star */
+.featured-post {
     background: var(--surface-raised);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-left: 3px solid var(--accent);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
 }
 
-.first-entry.post-entry h2 {
-    font-size: 1.6rem;
-    color: var(--text-bright);
+.featured-label {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     margin-bottom: 0.75rem;
 }
 
-.first-entry.post-entry h2 a {
+.featured-title {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
     color: var(--text-bright);
 }
 
-/* "Latest Post" label */
-.first-entry.post-entry span {
-    color: var(--accent) !important;
-    font-size: 0.75rem !important;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+.featured-title a {
+    color: var(--text-bright);
+    text-decoration: none;
 }
 
-/* All posts - content styling */
-.post-entry {
+.featured-title a:hover {
+    color: var(--accent);
+}
+
+.featured-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.featured-content {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    color: var(--accent-hover);
+}
+
+/* Other Posts Section */
+.other-posts {
+    margin-top: 1rem;
+}
+
+.section-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.post-card {
     background: var(--surface-raised);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid var(--surface-border);
     border-radius: 12px;
-    padding: 1.75rem 2rem;
+    padding: 1.5rem;
     margin-bottom: 1rem;
     transition: border-color 0.2s;
 }
 
-.post-entry:hover {
-    border-color: rgba(255,255,255,0.12);
-    transform: none;
-    box-shadow: none;
+.post-card:hover {
+    border-color: rgba(255,255,255,0.15);
 }
 
-.post-entry h2 {
-    font-size: 1.35rem;
-    color: var(--text-bright);
+.post-card h3 {
+    font-size: 1.15rem;
     margin-bottom: 0.5rem;
-}
-
-.post-entry h2 a {
     color: var(--text-bright);
 }
 
-/* Entry content - readable */
-.entry-content {
-    color: var(--text-body);
-    line-height: 1.7;
+.post-card h3 a {
+    color: var(--text-bright);
+    text-decoration: none;
 }
 
-.entry-content p {
-    color: var(--text-body);
+.post-card h3 a:hover {
+    color: var(--accent);
 }
 
-/* Post meta - subtle but readable */
-.post-meta {
+.post-card p {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.post-date {
     color: var(--text-muted);
     font-size: 0.85rem;
 }
 
-/* Entry footer */
-.entry-footer {
-    color: var(--text-muted);
+/* Sidebar */
+.home-sidebar {
+    position: sticky;
+    top: 2rem;
 }
 
-/* Individual post pages */
-.post-content {
+.sidebar-about {
+    background: var(--surface-raised);
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.sidebar-about h2 {
+    font-size: 1.25rem;
+    color: var(--text-bright);
+    margin-bottom: 1rem;
+}
+
+.sidebar-about p {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.sidebar-about strong {
+    color: var(--text-bright);
+}
+
+/* ========================================
+   POST PAGE LAYOUT
+   ======================================== */
+
+.post-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .post-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Post Main Content */
+.post-main {
+    background: var(--surface-raised);
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    padding: 3rem;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.post-title {
+    font-size: 2.25rem;
+    line-height: 1.25;
+    color: var(--text-bright);
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.post-description {
+    color: var(--text-body);
     font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* Post Content */
+.post-content {
+    font-size: 1.05rem;
     line-height: 1.85;
     color: var(--text-body);
 }
 
 .post-content h2 {
+    font-size: 1.5rem;
+    color: var(--text-bright);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--text-bright);
-    font-weight: 600;
 }
 
 .post-content p {
@@ -182,46 +279,144 @@
     font-weight: 600;
 }
 
+.post-content em {
+    color: var(--text-body);
+}
+
 .post-content blockquote {
     border-left: 3px solid var(--accent);
-    padding-left: 1.5rem;
+    padding: 1rem 1.5rem;
     margin: 2rem 0;
-    color: var(--text-body);
-    font-style: normal;
-    background: var(--accent-soft);
-    padding: 1.25rem 1.5rem;
+    background: rgba(124, 58, 237, 0.1);
     border-radius: 0 8px 8px 0;
 }
 
 .post-content blockquote p {
     margin-bottom: 0;
+    color: var(--text-body);
 }
 
-/* Lists */
 .post-content ul, .post-content ol {
-    color: var(--text-body);
     margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 .post-content li {
     margin-bottom: 0.5rem;
+    color: var(--text-body);
 }
 
-/* Links */
-a {
+.post-content a {
     color: var(--accent);
 }
 
-.post-entry a {
-    color: inherit;
+.post-content a:hover {
+    color: var(--accent-hover);
 }
 
-/* Page title on post pages */
-.post-title {
-    color: var(--text-bright);
+/* Post Tags */
+.post-tags {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--surface-border);
 }
 
-/* Breadcrumbs */
-.breadcrumbs {
+.tag {
+    display: inline-block;
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--accent);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+}
+
+.tag:hover {
+    background: rgba(124, 58, 237, 0.25);
+}
+
+/* Post Sidebar */
+.post-sidebar {
+    position: sticky;
+    top: 2rem;
+}
+
+.sidebar-section {
+    background: var(--surface-raised);
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-section h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.sidebar-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--surface-border);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sidebar-post:last-child {
+    border-bottom: none;
+}
+
+.sidebar-post-title {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.sidebar-post:hover .sidebar-post-title {
+    color: var(--accent);
+}
+
+.sidebar-post-date {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.sidebar-about p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.sidebar-cta {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sidebar-cta:hover {
+    color: var(--accent-hover);
+}
+
+/* ========================================
+   HIDE PAPERMOD DEFAULTS WE DON'T WANT
+   ======================================== */
+
+/* Hide breadcrumbs */
+.breadcrumbs {
+    display: none;
+}
+
+/* Post navigation at bottom */
+.paginav {
+    margin-top: 2rem;
 }
