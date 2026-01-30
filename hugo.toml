@@ -33,7 +33,7 @@ theme = "PaperMod"
 # Simpler menu - just link back to main site
 [menu]
   [[menu.main]]
-    name = "Loracle App"
+    name = "Go to the app"
     url = "https://loracle.io"
     weight = 1
 
