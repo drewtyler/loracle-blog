@@ -1,0 +1,43 @@
+baseURL = "https://drewtyler.github.io/loracle-blog/"
+languageCode = "en-us"
+title = "Loracle Blog"
+theme = "PaperMod"
+
+[params]
+  description = "The campaign memory you don't have to build"
+  author = "Loracle"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  defaultTheme = "dark"
+
+  [params.homeInfoParams]
+    Title = "Loracle Blog"
+    Content = "Thoughts on D&D, memory, storytelling, and building the campaign companion you deserve."
+
+  [[params.socialIcons]]
+    name = "discord"
+    url = "https://discord.gg/loracle"
+
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    name = "Loracle"
+    url = "https://loracle.io"
+    weight = 3
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    style = "dracula"
