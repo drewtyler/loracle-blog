@@ -1,116 +1,227 @@
-/* Fuller, more engaging layout */
+/* Clean, readable design */
 
-/* Make the main content area wider */
-.main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+:root {
+    --text-bright: #f0f0f0;
+    --text-body: #d4d4d4;
+    --text-muted: #888;
+    --accent: #7c3aed;
+    --accent-soft: rgba(124, 58, 237, 0.15);
+    --surface: #1a1a1a;
+    --surface-raised: #242424;
 }
 
-/* Home info section - more prominent */
+/* Wider layout */
+.main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+}
+
+/* Header - cleaner */
+.nav {
+    max-width: 960px;
+    padding: 1.5rem 3rem;
+}
+
+/* Theme toggle - just an icon, no box */
+#theme-toggle {
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+#theme-toggle:hover {
+    background: transparent;
+    opacity: 1;
+}
+
+/* Home info section */
 .home-info {
-    background: var(--code-bg);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    background: var(--surface-raised);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255,255,255,0.06);
 }
 
 .home-info .entry-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-bright);
+    font-weight: 700;
 }
 
 .home-info .entry-content p {
     font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--secondary);
+    line-height: 1.75;
+    color: var(--text-body);
 }
 
 .home-info .entry-content strong {
-    color: var(--primary);
+    color: var(--text-bright);
+    font-weight: 600;
 }
 
-/* Featured post styling */
+/* Social icons - subtle */
+.social-icons {
+    margin-top: 1.5rem;
+}
+
+.social-icons a {
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+}
+
+.social-icons svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Featured post - clean, no gradient */
 .first-entry.post-entry {
-    background: linear-gradient(135deg, var(--code-bg) 0%, transparent 100%);
-    border-left: 4px solid var(--primary);
-    padding: 1.5rem;
-    border-radius: 0 12px 12px 0;
+    background: var(--surface-raised);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-left: 3px solid var(--accent);
+    padding: 2rem;
+    border-radius: 12px;
     margin-bottom: 1.5rem;
 }
 
 .first-entry.post-entry h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    color: var(--text-bright);
+    margin-bottom: 0.75rem;
 }
 
-/* Regular posts */
+.first-entry.post-entry h2 a {
+    color: var(--text-bright);
+}
+
+/* "Latest Post" label */
+.first-entry.post-entry span {
+    color: var(--accent) !important;
+    font-size: 0.75rem !important;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+/* All posts - content styling */
 .post-entry {
-    background: var(--entry);
+    background: var(--surface-raised);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1.75rem 2rem;
     margin-bottom: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s;
 }
 
 .post-entry:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255,255,255,0.12);
+    transform: none;
+    box-shadow: none;
 }
 
-/* Entry content - show more text */
+.post-entry h2 {
+    font-size: 1.35rem;
+    color: var(--text-bright);
+    margin-bottom: 0.5rem;
+}
+
+.post-entry h2 a {
+    color: var(--text-bright);
+}
+
+/* Entry content - readable */
 .entry-content {
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
+    color: var(--text-body);
+    line-height: 1.7;
 }
 
-.first-entry .entry-content {
-    -webkit-line-clamp: 8;
-    line-clamp: 8;
+.entry-content p {
+    color: var(--text-body);
 }
 
-/* Social icons */
-.entry-footer svg {
-    width: 24px;
-    height: 24px;
+/* Post meta - subtle but readable */
+.post-meta {
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
-/* Header adjustments */
-.nav {
-    padding: 1rem 2rem;
+/* Entry footer */
+.entry-footer {
+    color: var(--text-muted);
 }
 
-/* Post pages - fuller content */
+/* Individual post pages */
 .post-content {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.85;
+    color: var(--text-body);
 }
 
 .post-content h2 {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
+    color: var(--text-bright);
+    font-weight: 600;
 }
 
 .post-content p {
     margin-bottom: 1.5rem;
+    color: var(--text-body);
+}
+
+.post-content strong {
+    color: var(--text-bright);
+    font-weight: 600;
 }
 
 .post-content blockquote {
-    border-left: 4px solid var(--primary);
+    border-left: 3px solid var(--accent);
     padding-left: 1.5rem;
-    font-style: italic;
-    color: var(--secondary);
     margin: 2rem 0;
+    color: var(--text-body);
+    font-style: normal;
+    background: var(--accent-soft);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 8px 8px 0;
 }
 
-/* Make theme toggle more visible */
-#theme-toggle {
-    padding: 0.5rem;
-    border-radius: 8px;
-    background: var(--code-bg);
+.post-content blockquote p {
+    margin-bottom: 0;
 }
 
-#theme-toggle:hover {
-    background: var(--border);
+/* Lists */
+.post-content ul, .post-content ol {
+    color: var(--text-body);
+    margin-bottom: 1.5rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+    color: var(--accent);
+}
+
+.post-entry a {
+    color: inherit;
+}
+
+/* Page title on post pages */
+.post-title {
+    color: var(--text-bright);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    color: var(--text-muted);
 }
