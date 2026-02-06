@@ -230,9 +230,9 @@ It gives us pause.
 
 We've built Loracle with that discomfort in mind.
 
-Your audio is processed and discarded. We don't keep recordings longer than we need to transcribe them. Once the entities are extracted, the audio is gone. We have no interest in your raw recordings. We can't sell them, we can't train on them, we can't do anything with them. They're deleted.
+Your recordings stay yours. They're stored securely so you can re-listen to any session—scrub through the audio, hear exactly how that conversation went down, relive the moment your player rolled a natural 20 at the worst possible time. The audio isn't just processed and thrown away; it's part of your campaign archive.
 
-Your data is yours. We don't use your campaigns to train our models. We don't share your information with third parties. We don't mine your sessions for insights about "what gamers want." The transaction is simple: you give us audio, we give you a searchable knowledge base. That's it.
+Your data is yours. We don't use your campaigns to train our models. We don't share your information with third parties. We don't mine your sessions for insights about "what gamers want." Your campaign stays private, period.
 
 We're also careful about what the AI does and doesn't do.
 
